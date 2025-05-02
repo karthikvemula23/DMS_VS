@@ -1,0 +1,19 @@
+{
+  "name": "dmsvsp",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KennyRed/DMS-VS.git"
+  },
+  "author": "Karthik Vemula",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KennyRed/DMS-VS/issues"
+  },
+  "homepage": "https://github.com/KennyRed/DMS-VS#readme",
+  "description": ""
+}

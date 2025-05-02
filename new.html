@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mine Safety Dashboard</title>
+  <style>
+    /* Fullscreen layout and base styling */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .header-left h4 {
+      margin: 0;
+      font-weight: normal;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .header-left h1 {
+      margin: 5px 0 0;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .user-name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .profile-wrapper {
+      position: relative;
+    }
+
+    .profile-pic {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 1px solid #ccc;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 45px;
+      right: 0;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 10;
+      width: 100px;
+    }
+
+    .dropdown p {
+      margin: 0;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .dropdown p:hover {
+      background-color: #eee;
+    }
+
+    /* Main content */
+    .content {
+      padding: 40px;
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+
+    .stats {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <h4>Dynamic Mine Safety</h4>
+      <h1>Mine Safety Dashboard</h1>
+    </div>
+
+    <div class="header-right">
+      <span class="user-name" id="displayName">Karthik</span>
+      <div class="profile-wrapper">
+        <img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-pic" id="profilePic" alt="Profile" />
+        <div class="dropdown" id="dropdownMenu">
+          <p onclick="logout()">Logout</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    <button>Overview</button>
+    <button>Ventilation</button>
+
+    <h2>Worker Status</h2>
+    <p>Track worker entry and air quality</p>
+
+    <div class="stats">234 Workers</div>
+
+    <h2>Safety Categories</h2>
+    <p><strong>Air Quality</strong><br>5/24 Alerts</p>
+    <p><strong>Gas Levels</strong><br>9/18 Gas Alerts</p>
+    <p><strong>Gas Detection</strong><br>5/15 Gas Alarms</p>
+    <p><strong>Hazardous Gas</strong><br>2/10 Hazards</p>
+  </div>
+
+  <script>
+    const profilePic = document.getElementById('profilePic');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    profilePic.addEventListener('click', () => {
+      dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (!profilePic.contains(e.target)) {
+        dropdownMenu.style.display = 'none';
+      }
+    });
+
+    function logout() {
+      localStorage.removeItem("isLoggedIn");
+      window.location.href = "index.html";
+    }
+
+    // Optional: Capitalize name (CamelCase)
+    const rawName = "karthik";
+    const camelName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
+    document.getElementById("displayName").textContent = camelName;
+  </script>
+</body>
+</html>

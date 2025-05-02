@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mine Safety Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <header>
+      <div class="header-left">
+        <h4>Dynamic Mine Safety</h4>
+        <h1>Mine Safety Dashboard</h1>
+      </div>
+      <div class="header-right">
+        <span id="displayName"><b>KARTHIK</b></span>
+        <div class="profile-wrapper">
+          <img src="user.png" alt="Profile" class="profile-pic" id="profilePic" />
+          <div class="dropdown" id="dropdownMenu">
+            <p onclick="logout()">Logout</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="btn-group">
+      <button class="tab-btn active">Overview</button>
+      <button class="tab-btn">Ventilation</button>
+    </div>
+
+    <section class="card">
+      <h3>Total Workers Inside</h3>
+      <h2 id="workerCount">234 Workers</h2>
+      <div class="progress"><div class="progress-bar" style="width: 80%"></div></div>
+    </section>
+
+    <section class="safety-categories">
+      <h2>Safety Categories</h2>
+      <div class="category-grid">
+        <div class="category-card">
+          <p>Tasks</p>
+          <h4>Air Quality</h4>
+          <h2 id="airQualityLabel" style="margin-top: 10px;">Good</h2>
+
+
+        </div>
+
+        <div class="category-card">
+          <p>Alerts</p>
+          <h4>Gas Levels</h4>
+          <select id="gasLevelDropdown"></select>
+          <div class="progress small"><div class="progress-bar" id="gasLevelProgress"></div></div>
+          <span class="badge" id="gasLevelBadge"></span>
+        </div>
+
+        <div class="category-card">
+          <p>Gas Alerts</p>
+          <h4>Gas Detection</h4>
+          <select id="gasDetectDropdown"></select>
+          <div class="progress small"><div class="progress-bar" id="gasDetectProgress"></div></div>
+          <span class="badge" id="gasDetectBadge"></span>
+        </div>
+
+        <div class="category-card">
+          <p>Gas Alarms</p>
+          <h4>Hazardous Gas</h4>
+          <select id="hazardGasDropdown"></select>
+          <div class="progress small"><div class="progress-bar" id="hazardGasProgress"></div></div>
+          <span class="badge" id="hazardGasBadge"></span>
+        </div>
+
+        <div class="category-card">
+          <p>System</p>
+          <h4>Exhausters</h4>
+          <div class="exhauster-status" id="exhausterStatus">OFF</div>
+        </div>
+
+        <div class="category-card">
+          <p>Status</p>
+          <h4>Workers In</h4>
+          <div class="progress small"><div class="progress-bar" id="workersInProgress"></div></div>
+          <span class="badge" id="workersInBadge"></span>
+        </div>
+
+        <div class="category-card">
+          <p>Status</p>
+          <h4>Workers Out</h4>
+          <div class="progress small"><div class="progress-bar" id="workersOutProgress"></div></div>
+          <span class="badge" id="workersOutBadge"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="evacuationCard" style="display:none;">
+      <h2 style="color:red;">🚨 Evacuation Alert!</h2>
+      <p>A hazardous gas has reached a dangerous level. All workers must evacuate immediately!</p>
+    </section>
+
+    <footer class="bottom-nav">
+      <i class="fas fa-home active"></i>
+      <i class="fas fa-search"></i>
+      <i class="fas fa-bars"></i>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
