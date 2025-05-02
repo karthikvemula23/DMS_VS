@@ -1,0 +1,10 @@
+{
+  "appId": "com.karthik.com",
+  "appName": "dmsvsp",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}
