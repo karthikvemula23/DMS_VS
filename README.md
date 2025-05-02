@@ -1,9 +1,5 @@
-
-# Wrap Your Portfolio Website Using Capacitor
-
-Okay, let's get you started with the basic Capacitor code to wrap your portfolio website. Below are the essential steps and code snippets.
-
----
+Step by step guide to build apk using capacitor from URL
+<br>
 
 
 ## **Prerequisites**
