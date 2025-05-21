@@ -32,8 +32,8 @@ npm init @capacitor/app
 
 The CLI will ask you a few questions:
 
-- **App name:** Choose a name for your app (e.g., `PortfolioApp`)
-- **Package ID:** This is your app's unique identifier (e.g., `com.example.portfolioapp`)
+- **App name:** Choose a name for your app (e.g., `MiningApp`)
+- **Package ID:** This is your app's unique identifier (e.g., `com.example.miningapp`)
 - **Web dir:** Enter `.` (dot), since your portfolio is already a built website hosted on Vercel
 
 After answering the questions, Capacitor will initialize a basic project structure.
@@ -45,7 +45,7 @@ After answering the questions, Capacitor will initialize a basic project structu
 Navigate into your newly created project directory:
 
 ```bash
-cd PortfolioApp
+cd MiningApp
 ```
 
 Then add the Android platform:
@@ -98,14 +98,14 @@ Open the `capacitor.config.ts` file in your project’s root directory and modif
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.example.portfolioapp', // Make sure this matches what you entered during initialization
-  appName: 'PortfolioApp',
+  appId: 'com.example.miningapp', // Make sure this matches what you entered during initialization
+  appName: 'MiningApp',
   webDir: '.', // Changed to '.' to point to the root where your website "is"
   bundledWebRuntime: false, // Since your website is hosted, we don't need to bundle a web runtime
 
   // Optional: Configure the server URL
   server: {
-    url: 'https://sravanth-kumar-tulluri.vercel.app/',
+    url: 'https://dmsvspz.web.app/',
     cleartext: true // May be needed for development if you encounter issues with HTTPS
   }
 };
