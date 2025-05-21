@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login - Mine Safety Dashboard</title>
+
   <style>
     * {
       margin: 0;
@@ -11,6 +13,7 @@
       box-sizing: border-box;
     }
 
+    /* Body styling to center the login box */
     body {
       font-family: 'Poppins', sans-serif;
       background: #f9f9f9;
@@ -20,6 +23,7 @@
       height: 100vh;
     }
 
+    /* Login box styling */
     .login-container {
       background: white;
       padding: 40px;
@@ -54,13 +58,13 @@
 
     input:focus {
       outline: none;
-      border-color: #007bff;
+      border-color: #007bff; /* Highlight when input is focused */
     }
 
     button {
       width: 100%;
       padding: 12px;
-      background-color: #00c851;
+      background-color: #00c851; /* Green button */
       color: white;
       border: none;
       border-radius: 5px;
@@ -69,7 +73,7 @@
     }
 
     button:hover {
-      background-color: #007bff;
+      background-color: #007bff; /* Blue on hover */
     }
 
     .error-message {
@@ -77,44 +81,106 @@
       text-align: center;
       margin-top: 10px;
     }
+
+    /* Loader styles when logging in */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      gap: 10px;
+    }
+
+    /* Animation dots for loader */
+    .loader:before,
+    .loader:after {
+      content: "";
+      height: 20px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(farthest-side,#000 95%,#0000) 35% 35%/6px 6px no-repeat
+        #00c851;
+      animation: l5 1s infinite;
+    }
+
+    /* Make second dot animate with delay */
+    .loader:after {
+      animation-delay: -0.2s;
+    }
+
+    /* Keyframes for bouncing effect of loader dots */
+    @keyframes l5 {
+      0%, 11%   { background-position: 35% 35%; }
+      14%, 36%  { background-position: 65% 35%; }
+      38%, 61%  { background-position: 65% 65%; }
+      64%, 86%  { background-position: 35% 65%; }
+      88%, 100% { background-position: 35% 35%; }
+    }
+
   </style>
 </head>
 <body>
 
+  <!-- Main login form -->
   <div class="login-container">
     <h2>Login</h2>
+
+    <!-- Username input -->
     <div class="input-group">
       <label for="username">Username</label>
       <input type="text" id="username" placeholder="Enter your username" required>
     </div>
+
+    <!-- Password input -->
     <div class="input-group">
       <label for="password">Password</label>
       <input type="password" id="password" placeholder="Enter your password" required>
     </div>
+
+    <!-- Login button -->
     <button onclick="login()">Login</button>
+
+    <!-- Area to show error messages -->
     <div class="error-message" id="errorMessage"></div>
   </div>
 
+  <!-- Loader animation shown during login process -->
+  <div class="loader" id="loginLoader" style="display: none;"></div>
+
   <script>
-    // Function to trigger login on Enter key press
+    // Allow user to press 'Enter' key to trigger login
     document.addEventListener('keydown', function(event) {
       if (event.key === 'Enter') {
-        login();  // Trigger login function
+        login();  // Calling login function
       }
     });
 
+    // Login function to check username and password
     function login() {
       var username = document.getElementById("username").value;
       var password = document.getElementById("password").value;
       var errorMessage = document.getElementById("errorMessage");
+      var loader = document.getElementById("loginLoader");
 
+      // Check if fields are not empty
       if (username === "" || password === "") {
         errorMessage.textContent = "Please enter both username and password!";
       } else {
-        // For demo, checking against fixed values
+        // Hardcoded credentials just for testing purpose
         if (username === "karthik" && password === "123456") {
-          window.location.href = 'DMSVS.html';  // Redirect to dashboard
+          loader.style.display = "flex";  // Show loader
+          setTimeout(() => {
+            window.location.href = 'DMSVS.html';  // Redirect to dashboard
+          }, 1500);  
         } else {
+          // Show error if username or password is wrong
           errorMessage.textContent = "Invalid username or password!";
         }
       }

@@ -127,7 +127,7 @@ header {
   text-align: center;
   line-height: 20px;
   font-size: 12px;
-  color: white; /* You can remove this, as the badge will no longer display text */
+  color: white; 
 }
 .air-quality-indicator {
   display: inline-block;
@@ -173,4 +173,72 @@ header {
 .bottom-nav i {
   font-size: 24px;
   cursor: pointer;
+}
+
+/* Centering the Footer Items */
+.bottom-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+  padding: 10px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Refresh Button Styles */
+.refresh-btn {
+  background: #00c851;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0;
+  z-index: 10;
+}
+
+.refresh-btn:hover {
+  background: #007e33;
+}
+
+/* Full-screen Loader */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  gap: 10px;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  height: 20px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(farthest-side, #000 95%, #0000) 35% 35% / 6px 6px no-repeat
+    #00c851;
+  transform: scaleX(var(--s, 1)) rotate(0deg);
+  animation: l6 1s infinite linear;
+}
+
+.loader:after {
+  --s: -1;
+  animation-delay: -0.1s;
+}
+
+@keyframes l6 {
+  100% {
+    transform: scaleX(var(--s, 1)) rotate(360deg);
+  }
 }

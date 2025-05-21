@@ -168,3 +168,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!evacuationTriggered) generateGasData();
   }, 10000);
 });
+
+// Smooth Page Load
+window.addEventListener("load", () => {
+  document.body.classList.add("fade-in");
+});
+
+// Smooth Page Refresh with Loader
+document.querySelector(".refresh-btn").addEventListener("click", () => {
+  const loader = document.getElementById("pageLoader");
+  loader.style.display = "flex";
+  
+  // Delay for the animation
+  setTimeout(() => location.reload(), 1000);  
+}); 
